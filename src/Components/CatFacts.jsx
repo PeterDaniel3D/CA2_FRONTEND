@@ -17,7 +17,8 @@ const Company = ({ facade }) => {
 
   const updateCatPic = (data) => {
     let parsedData = JSON.parse(data)
-    setCat({ url: parsedData.url })
+    console.log("DATA: " + data)
+    setCat({ url: parsedData[0].url })
   };
 
   useEffect(() => {
@@ -27,8 +28,7 @@ const Company = ({ facade }) => {
 
   return (
     <div>
-      <Image src={cat.url} fluid className="mb-4" />
-      <p>{cat.url}</p>
+      <Image src={cat.url} alt={cat.url} fluid className="mb-4" />
       <p>{voice.fact}</p>
       <p><button onClick={voicePlay}>PLAY AUDIO</button></p>
     </div>
